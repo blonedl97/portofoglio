@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tchakomeni Pene Arnol Blondel - Sviluppatore Front-End</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 1s ease-in-out;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                        <img src="photo.jpg" alt="Tchakomeni Pene Arnol Blondel" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-xl font-bold text-indigo-600">Tchakomeni</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600 active">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600">Chi sono</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-indigo-600">Competenze</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-indigo-600">Progetti</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-indigo-600">Contatti</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-indigo-600">Chi sono</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-indigo-600">Competenze</a>
+                <a href="#projects" class="block py-2 text-gray-700 hover:text-indigo-600">Progetti</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-indigo-600">Contatti</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-32 pb-20 md:pt-40 md:pb-28 text-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Ciao, sono <span class="text-indigo-200">Tchakomeni Pene Arnol Blondel</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Sviluppatore Front-End & Studente di Informatica</h2>
+                <p class="text-lg mb-8 text-indigo-100">Creo esperienze web moderne, accessibili e performanti con le ultime tecnologie front-end.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-medium hover:bg-indigo-50 transition duration-300">Contattami</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-10 transition duration-300">Vedi i miei progetti</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img src="photo.jpg" alt="Tchakomeni Pene Arnol Blondel" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Chi sono</h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
+                        <img src="photo.jpg" alt="Tchakomeni Pene Arnol Blondel" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-600">La mia storia</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Sono Tchakomeni Pene Arnol Blondel, uno studente di informatica appassionato di sviluppo web front-end. Attualmente sto ampliando le mie conoscenze accademiche mentre lavoro su progetti personali per migliorare le mie competenze pratiche.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Mi piace trasformare idee creative in realtà digitali attraverso codice pulito e design intuitivo. Sono sempre alla ricerca di nuove sfide per crescere professionalmente.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <p class="font-medium"><span class="text-indigo-600">Nome:</span> Tchakomeni Pene Arnol Blondel</p>
+                            <p class="font-medium"><span class="text-indigo-600">Email:</span> peneblondel@gmail.com</p>
+                            <p class="font-medium"><span class="text-indigo-600">Telefono:</span> +39 389 020 5132</p>
+                        </div>
+                        <div>
+                            <p class="font-medium"><span class="text-indigo-600">Esperienza:</span> 1 anno</p>
+                            <p class="font-medium"><span class="text-indigo-600">Status:</span> Studente</p>
+                            <p class="font-medium"><span class="text-indigo-600">Località:</span> Parma, Italia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="cv.pdf" class="bg-indigo-600 text-white px-6 py-2 rounded-full font-medium hover:bg-indigo-700 transition duration-300 flex items-center">
+                            <i class="fas fa-download mr-2"></i> Scarica CV
+                        </a>
+                        <a href="#contact" class="border-2 border-indigo-600 text-indigo-600 px-6 py-2 rounded-full font-medium hover:bg-indigo-50 transition duration-300">
+                            Maggiori info
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Le mie competenze</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-indigo-600">Tecnologie Front-End</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HTML5</span>
+                                <span class="text-indigo-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">CSS3/Tailwind</span>
+                                <span class="text-indigo-600">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">JavaScript</span>
+                                <span class="text-indigo-600">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">React.js</span>
+                                <span class="text-indigo-600">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-indigo-600">Altre Competenze</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Git/GitHub</span>
+                                <span class="text-indigo-600">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Bootstrap</span>
+                                <span class="text-indigo-600">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Java</span>
+                                <span class="text-indigo-600">50%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">C++</span>
+                                <span class="text-indigo-600">40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-2xl font-semibold mb-8 text-indigo-600 text-center">Tecnologie che utilizzo</h3>
+                
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fab fa-html5 text-4xl text-orange-500"></i>
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fab fa-js text-4xl text-yellow-500"></i>
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fab fa-react text-4xl text-blue-400"></i>
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fab fa-bootstrap text-4xl text-purple-500"></i>
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fab fa-github text-4xl text-gray-800"></i>
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fab fa-java text-4xl text-red-500"></i>
+                    </div>
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center p-4 hover:shadow-lg transition duration-300">
+                        <i class="fas fa-code text-4xl text-blue-600"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">I miei progetti</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-500">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Progetto Dashboard" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Dashboard Analytics</h3>
+                        <p class="text-gray-600 mb-4">Una dashboard completa con visualizzazione dati in tempo reale, costruita con HTML, CSS e JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">HTML5</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">CSS3</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://blonedl97.github.io/DASHBOARD-ANALYTICS/" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="https://github.com/blonedl97/DASHBOARD-ANALYTICS" class="text-gray-600 hover:text-gray-800"><i class="fab fa-github"></i> Codice</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-500">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Progetto E-commerce" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sito E-commerce</h3>
+                        <p class="text-gray-600 mb-4">Pagina prodotto per un negozio online con carrello funzionale, costruita con Bootstrap e JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Responsive</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://blonedl97.github.io/E-COMMERCE/" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="https://github.com/blonedl97/E-COMMERCE" class="text-gray-600 hover:text-gray-800"><i class="fab fa-github"></i> Codice</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-500">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Progetto Portfolio" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Applicazione React</h3>
+                        <p class="text-gray-600 mb-4">Una semplice applicazione React che mostra le mie competenze di base con questo framework.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">TailwindCSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">API</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fab fa-github"></i> Codice</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-indigo-600 text-indigo-600 px-6 py-3 rounded-full font-medium hover:bg-indigo-600 hover:text-white transition duration-300">
+                    Vedi altri progetti <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Contattami</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-indigo-600 text-white p-8 md:p-12">
+                            <h3 class="text-2xl font-bold mb-6">Informazioni di contatto</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-indigo-700 rounded-full p-3 mr-4">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Indirizzo</h4>
+                                        <p class="text-indigo-100">Parma, Italia</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-indigo-700 rounded-full p-3 mr-4">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Email</h4>
+                                        <p class="text-indigo-100">peneblondel@gmail.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-indigo-700 rounded-full p-3 mr-4">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Telefono</h4>
+                                        <p class="text-indigo-100">+39 389 020 5132</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="font-semibold mb-4">Seguimi</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://www.linkedin.com/in/arnol-blondel-b5a480223" class="bg-indigo-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-indigo-800 transition duration-300">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://github.com/blonedl97" class="bg-indigo-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-indigo-800 transition duration-300">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="bg-indigo-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-indigo-800 transition duration-300">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="bg-indigo-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-indigo-800 transition duration-300">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 p-8 md:p-12">
+                            <h3 class="text-2xl font-bold mb-6 text-gray-800">Inviami un messaggio</h3>
+                            
+                            <form>
+                                <div class="mb-6">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Nome completo</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Il tuo nome">
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="La tua email">
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label for="subject" class="block text-gray-700 font-medium mb-2">Oggetto</label>
+                                    <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Oggetto del messaggio">
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Messaggio</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Il tuo messaggio"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition duration-300">
+                                    Invia messaggio <i class="fas fa-paper-plane ml-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                        <img src="photo.jpg" alt="Tchakomeni Pene Arnol Blondel" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-xl font-bold">Tchakomeni Pene Arnol Blondel</span>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 mb-2">© 2023 Tutti i diritti riservati</p>
+                    <p class="text-gray-400">Sviluppatore Front-End & Studente di Informatica</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Highlight active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === #${current}) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Show/hide back to top button
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        // Back to top button functionality
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        // Intersection Observer for skill bars animation
+        const skillsSection = document.getElementById('skills');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(skillsSection);
+    </script>
+</body>
+</html>
